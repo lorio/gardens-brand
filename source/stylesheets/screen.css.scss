@@ -1,0 +1,270 @@
+//
+// Main Stylesheet
+//
+
+@import "compass";
+@import "h5bp";
+@import "breakpoint";
+
+// HTML5 Boilerplate Styles
+@include h5bp-normalize;
+@include h5bp-base-styles;
+
+// Susy Grid Systems - choose one to customize
+// @import "grid/fixed"
+@import "grid/magic";
+
+// Font Awesome icons
+@import "font-awesome";
+
+// Your own styles go here.
+@function black($opacity){
+    @return rgba(0,0,0,$opacity)
+}
+@function white($opacity){
+    @return rgba(255,255,255,$opacity)
+}
+@mixin box-emboss($opacity, $opacity2){
+    box-shadow:white($opacity) 0 1px 0, inset black($opacity2) 0 1px 0;
+}
+@mixin letterpress($opacity){
+    text-shadow:white($opacity) 0 1px 0;
+}
+$main-color: rgba(10,16,30,.9);
+$breakpoint-slimmest: max-width 27em;
+$breakpoint-portrait: max-width 48em;
+$breakpoint-desk: max-width 1259px;
+
+body {background-color: #f3f4f8;}
+
+h1 {
+  font-family: "ff-market-web",cursive;
+  font-size: 6em;
+  line-height: 0.6em; 
+  color: rgb(223,44,44);
+  margin: 1% 10% 0 10%;
+  @include breakpoint($breakpoint-portrait) {
+      font-size: 5em;
+    }
+  @include breakpoint($breakpoint-slimmest) {
+    font-size: 4em;
+    }
+  span {
+    font-family: "jaf-mashine-rounded",sans-serif;
+    font-size: 200%;
+    font-style: normal;
+    // line-height: 1em;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgba(231,181,61,.9);
+    @include letterpress(.09);
+    @include breakpoint($breakpoint-portrait) {
+      font-size: 125%;
+    }
+    @include breakpoint($breakpoint-slimmest) {
+      font-size: 115%;
+    }
+  }
+}
+h2, h3 {
+  font: 1.8em/2em "jaf-mashine-rounded",san-serif;
+  font-style: normal;
+  font-weight: 500;
+  color: rgba(231,181,61,.9);
+  @include letterpress(.09);
+  text-align: center;
+  padding: 4em 0;
+}
+p {
+  font: 1.2em/1.4em 'effra',san-serif;
+  @include letterpress(.09);
+  letter-spacing: 0.07em;
+}
+kbd {
+  background-color: #f5f5f5;
+  border: 1px solid #dedede;
+  padding: 0px 3px 2px;
+}
+footer {
+  margin-top: 3em;
+  text-align: right;
+}
+.dark {
+  background-color: $main-color;
+  color: rgba(231,181,61,.9);
+  padding: 0 3em 1em;
+  header {
+    h2, h3 {padding: 0}
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+  p {
+    color: rgba(231,181,61,.7);
+  } 
+}
+.light {
+  p,h3 {
+    color: $main-color;    
+  }
+  h3 {
+    text-align: left;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  h3 ~ p {margin-top: 0}
+  h3 ~ h3 {
+    margin-top: 0;
+    margin-bottom:0;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+.container {
+  background-color: white;
+  // Force images to scale down to their container widths.
+  img {
+    max-width: 100%;
+    height: auto;
+    @include breakpoint($break-tablet) {
+      padding-right: 0;
+    }
+    @include breakpoint($breakpoint-portrait) {
+      padding-right: 0;
+    }
+  }
+}
+.page {
+  overflow: hidden;
+}
+.wide-wrap {
+  border-top: 2px solid #dedede;
+  border-bottom: 2px solid #dedede;
+  .photo {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    @include breakpoint($breakpoint-portrait) {
+      background-position: center center;
+    }
+  }
+  .info-box {
+    font-size: 80%;
+    @include span-columns(7, 16);
+    padding: 1em 0 1em 6em;
+    h3 {
+      line-height: 1.4em;
+      letter-spacing: -0.8;
+    }
+    h4 {
+      @extend h3; 
+      font-size: 1.4em;
+    }
+    @include breakpoint($breakpoint-portrait) {
+      padding: 0 1em;
+      @include span-columns(5);
+    }
+    p {
+      font-size: 1.4em;
+      letter-spacing: -0.8;
+    }
+  }
+  .lead {
+    padding: 10% 0 30% 0;
+    background-image: url(images/ghitose.jpg);
+  }
+
+  .left {
+    @include span-columns(7, 16);
+    padding: 0 2.6em 1em;
+    margin-right: 0;
+    @include breakpoint($breakpoint-portrait) {
+      @include span-columns(5);
+      padding: 0 1em;
+    }
+    @include breakpoint($break-tablet) {
+      @include span-columns(5);
+      padding: 0 1em;
+    }
+    @include breakpoint($breakpoint-desk) {
+      @include span-columns(11,12);
+      padding: 0 1em;
+    }
+  }
+  .right {
+    //clear: none;
+    float: right;
+    padding: 0 2.6em 1em 1em;
+    @include breakpoint($breakpoint-desk) {
+      @include span-columns(11,12);
+      padding: 1em;
+    }
+    @include breakpoint($break-tablet) {
+      float: none;
+      @include span-columns(5);
+      padding: 1em;
+    }
+    @include breakpoint($breakpoint-portrait) {
+      @include span-columns(5);
+      padding: 1em;
+    }
+    video {
+      max-width: 427px;
+      padding-top: 1em;
+      padding-left: 1.6em;
+      @include breakpoint($breakpoint-desk) {
+        @include span-columns(12);
+        float: none;
+        padding:1em;
+        margin-left: 25%;
+        margin-right: -25%; 
+      }
+      @include breakpoint($breakpoint-portrait) {
+        @include span-columns(6,6);    
+        text-align: center;
+        padding: 1em 0;
+        margin: 1em 2em 0 1em;
+       }
+    }
+  }
+}
+.clear {clear: both;}
+.gallery {
+  @include box-sizing(border-box);
+  img:first-of-type {
+    float: left;
+    margin:0;
+    padding:0;
+    width: percentage(7/16);
+    @include breakpoint($breakpoint-portrait) {
+    width: 90%;
+    float: none;
+    text-align: center;
+    padding:1em;
+    }
+  }
+  img:last-of-type {
+    float: left;
+    margin:0;
+    padding:0;
+    width: percentage(9/16);
+    @include breakpoint($breakpoint-portrait) {
+    width: 90%;
+    float: none;
+    text-align: center;
+    padding: 1em;
+    }
+  }
+} 
+
+footer {
+  padding-left: 1em;
+  padding-right: 1em;
+ p {text-align: center;}
+}
+// H5BP helper classes & mixins.
+// @include h5bp-helpers
+
+// Print styles.
+@include h5bp-media

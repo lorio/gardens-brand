@@ -13,7 +13,7 @@ bodyclass: main
         %span.big KEY
         %br
         Ceremony
-      %h2 A feisty feature film about a community garden
+      %h2 A feisty film about a community garden
 %section.dark
   %header
     %h2= current_page.data.title
@@ -50,15 +50,9 @@ bodyclass: main
       %h3 Sunday March 30, 2014
       %h4 12:30 p.m., $6
       %p info: covermag[at]yahoo.com
-    .right 
-      %video{:controls => " ",:poster => "images/poster427.jpg", :preload => "none"}
-        %source{:src => "video/key.webm", :type => "video/webm", :codec => "vp8,vorbis"}
-          %source{:src => "video/trailer480.mp4", :type => "video/mp4"}
-          
-          
-            
-              
-
-
-
+    .right    
+      .video-wrap     
+        %iframe{:allowfullscreen => " ", :frameborder => "0", :height => "366", :mozallowfullscreen => " ", :src => "//player.vimeo.com/video/89666161", :webkitallowfullscreen => " ", :width => "500"}  
+        %p
+          %a{:href => "http://vimeo.com/89666161"} Film trailer by Lili White
 

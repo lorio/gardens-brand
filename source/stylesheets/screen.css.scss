@@ -147,6 +147,7 @@ footer {
     background-attachment: fixed;
     @include breakpoint($breakpoint-portrait) {
       background-position: center center;
+      background-attachment: scroll;
     }
   }
   .info-box {
@@ -209,23 +210,28 @@ footer {
       @include span-columns(5);
       padding: 1em;
     }
-    video {
+    .video-wrap {
       max-width: 427px;
+      margin-top:1em;
       padding-top: 1em;
       padding-left: 1.6em;
+      padding-bottom: 43.75%;
+      position: relative;
       @include breakpoint($breakpoint-desk) {
-        @include span-columns(12);
+        @include span-columns(8,8);
         float: none;
-        padding:1em;
-        margin-left: 25%;
-        margin-right: -25%; 
+        display: block;
+        margin: 0 auto;
       }
       @include breakpoint($breakpoint-portrait) {
         @include span-columns(6,6);    
-        text-align: center;
-        padding: 1em 0;
-        margin: 1em 2em 0 1em;
-       }
+        }
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
     }
   }
 }
@@ -257,12 +263,12 @@ footer {
     }
   }
 } 
-
 footer {
   padding-left: 1em;
   padding-right: 1em;
  p {text-align: center;}
 }
+
 // H5BP helper classes & mixins.
 // @include h5bp-helpers
 

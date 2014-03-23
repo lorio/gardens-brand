@@ -94,14 +94,14 @@ end
 configure :build do
 
   # Requires middleman-favicon-maker
-  activate :favicon_maker, :icons => {
-    "favicon_base.png" => [
-      { icon: "apple-touch-icon-144x144-precomposed.png" },
-      { icon: "apple-touch-icon-114x114-precomposed.png" },
-      { icon: "apple-touch-icon-72x72-precomposed.png" },
-      { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
-    ]
-  }
+#  activate :favicon_maker, :icons => {
+#    "favicon_base.png" => [
+#      { icon: "apple-touch-icon-144x144-precomposed.png" },
+#      { icon: "apple-touch-icon-114x114-precomposed.png" },
+#     { icon: "apple-touch-icon-72x72-precomposed.png" },
+#      { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
+#    ]
+#  }
 
 
   # For example, change the Compass output style for deployment
